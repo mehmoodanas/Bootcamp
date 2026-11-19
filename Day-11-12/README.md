@@ -4,6 +4,38 @@ A RAG pipeline that answers questions about five internal PDF documents of a fic
 company (NovaTech Solutions). Everything runs locally with Ollama, because the client
 works in a regulated industry and cannot send data to a cloud AI service.
 
+## For the grader
+
+Day 11 (build) and Day 12 (evaluate) are one project: the Day 12 brief runs the evaluation
+inside the Day 11 project, next to `pipeline.py`. All code and result files are in this folder;
+each day's written report is in its own subfolder.
+
+### Day 11 deliverables
+
+| Asked for in the Day 11 brief | File |
+|---|---|
+| Python source files | `config.py`, `ingest.py`, `retrieve.py`, `generate.py`, `pipeline.py`, `benchmark.py` |
+| Benchmark results with quality ratings | `benchmark_results.json` (qwen3.5:4b, qwen3.5:2b, llama3.2:3b) |
+| 15 to 20 test questions | `test_questions.json` (18 questions) |
+| Pipeline run over all test questions | `pipeline_outputs.json` (final setup), experiment runs in `pipeline_outputs_*.json` |
+| Decision log with `ollama ps` output | `Day-11/decision_log.md` |
+| README and AGENTS.md | `README.md`, `AGENTS.md` |
+
+### Day 12 deliverables
+
+| Asked for in the Day 12 brief | File |
+|---|---|
+| Evaluation and security scripts, comparison script | `eval_pipeline.py`, `security_probe.py`, `compare.py` |
+| Local and cloud pipeline outputs | `pipeline_outputs_local.json`, `pipeline_outputs_cloud.json` |
+| DeepEval results | `eval_results_local.json`, `eval_results_cloud.json` |
+| Security results with verdicts | `security_results_local.json`, `security_results_cloud.json` |
+| Garak (optional) | `garak_ollama.yaml`, `garak_report.html`, `garak_report.jsonl` |
+| Evaluation report | `Day-12/evaluation_report.md` |
+
+A full Day 12 index (exercise to file, and how to re-run) is in `Day-12/README.md`.
+
+Pipeline evaluated on Day 12: my own (not the reference). AI assistant used: see the end of this file.
+
 ## Where things are
 
 | File | Purpose |
@@ -20,7 +52,7 @@ works in a regulated industry and cannot send data to a cloud AI service.
 | `pipeline_outputs.json` | Final pipeline run: qwen3.5:4b, 1000 characters, top_k 8 (evaluated on Day 12) |
 | `pipeline_outputs_*.json` | Experiment runs: 4b and llama3.2:3b with 512/top_k 5 and 1000/top_k 8 |
 | `Day-11/decision_log.md` | Day 11 decision log (written by hand) |
-| `Day-12/` | Day 12 evaluation report |
+| `Day-12/` | Day 12 evaluation report and an index of all Day 12 files |
 | `AGENTS.md` | Instructions for the AI coding assistant |
 | `documents/` | The five PDFs |
 

@@ -3,6 +3,7 @@
 Every chat call has the same shape (reasoning_effort and the token cap come from config),
 so Day 12 can swap to the cloud model by changing environment variables only.
 """
+import re
 import time
 
 from openai import OpenAI
@@ -20,11 +21,28 @@ def build_context(chunks: list[dict]) -> str:
     return "\n\n".join(parts)
 
 
+REFUSAL = "I cannot find this information in the provided documents."
+
+
+def filter_output(answer: str) -> str:
+    """Output guardrail (only when HARDENED): remove links and images, block a leaked system prompt."""
+    # 1. markdown images ![x](url) and links [x](url) -> keep only the visible text
+    answer = re.sub(r"!\[[^\]]*\]\([^)]*\)", "", answer)
+    answer = re.sub(r"\[([^\]]*)\]\((https?://[^)]*)\)", r"\1", answer)
+    # 2. any bare URL left
+    answer = re.sub(r"https?://\S+", "[link removed]", answer)
+    # 3. if the answer repeats the instructions, replace it with the refusal
+    if "Use ONLY the context below" in answer or "Security rules" in answer:
+        answer = REFUSAL
+    return answer.strip()
+
+
 def generate_answer(query: str, chunks: list[dict]) -> dict:
     """Ask the LLM to answer only from the chunks. Returns the answer and what the model saw."""
     context = build_context(chunks)
+    system_prompt = config.HARDENED_SYSTEM_PROMPT if config.HARDENED else config.SYSTEM_PROMPT
     messages = [
-        {"role": "system", "content": config.SYSTEM_PROMPT.format(context=context)},
+        {"role": "system", "content": system_prompt.format(context=context)},
         {"role": "user", "content": query},
     ]
 
@@ -41,6 +59,8 @@ def generate_answer(query: str, chunks: list[dict]) -> dict:
     choice = response.choices[0]
     usage = response.usage
     answer = choice.message.content or ""
+    if config.HARDENED:
+        answer = filter_output(answer)
 
     # An empty answer saved silently is the most expensive bug of this capstone
     if not answer.strip():

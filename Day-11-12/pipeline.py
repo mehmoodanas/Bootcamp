@@ -33,7 +33,9 @@ def build_row(item: dict, result: dict) -> dict:
         "question": item["question"],
         "expected_answer": item["expected_answer"],
         "actual_answer": result["answer"],
-        "retrieved_context": [c["content"] for c in chunks],
+        # each chunk with the same [n] (source, page) label the model saw, so the judge can check citations
+        "retrieved_context": [f"[{n}] (source: {c['source']}, page {c['page']})\n{c['content']}"
+                              for n, c in enumerate(chunks, start=1)],
         "context_sources": [{"source": c["source"], "page": c["page"], "score": c["relevance_score"]}
                             for c in chunks],
         "context_used": result["context_used"],

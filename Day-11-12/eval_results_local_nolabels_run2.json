@@ -1,0 +1,704 @@
+[
+  {
+    "id": "q02",
+    "question": "How many paid sick days do employees get, and when is a medical certificate needed?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 93034,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because the actual output claims the information is based on the provided context and cites company_handbook.pdf page 5, but the retrieval context does not verify either of those details.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the output is fully relevant to the question and contains no irrelevant statements. It directly addresses paid sick days and medical certificate requirements, so it cannot be higher.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.043478260869565216,
+        "success": false,
+        "reason": "The score is 0.04 because almost all of the retrieved content is unrelated, including references like \"PTO requests via NovaHR,\" \"twenty-five (25) days of paid time off (PTO),\" and onboarding/security policies. Only two statements directly answer the question: \"Employees are entitled to ten (10) paid sick days per calendar year\" and \"A medical certificate is required for absences exceeding three (3) consecutive working days.\"",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because node 1 in retrieval context fully supports both sentence 1 (10 paid sick days per calendar year) and sentence 2 (medical certificate required for absences longer than 3 consecutive working days), with no unsupported parts. Great match!",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the first node in the retrieval contexts directly answers the question with \"Employees are entitled to ten (10) paid sick days per calendar year\" and \"A medical certificate is required for absences exceeding three (3) consecutive working days,\" while all later nodes in the retrieval contexts are irrelevant and correctly ranked lower.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q03",
+    "question": "What is the annual professional development budget per employee?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 89712,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.3333333333333333,
+        "success": false,
+        "reason": "The score is 0.33 because the actual output adds unsupported source details, including a claim tied to company_handbook.pdf, page 11, even though the retrieval context does not mention any source citation or verify that the statement is based on the provided context.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response should be fully relevant to the question and there are no irrelevant statements noted, so it deserves the highest score.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.08064516129032258,
+        "success": false,
+        "reason": "The score is 0.08 because most of the retrieval context is unrelated—e.g., it discusses “meeting context,” “subscription pricing and user counts,” and “PTO carryover,” which do not answer the budget question. Although one statement is directly relevant—“Every full-time employee receives an annual professional development budget of €2,000”—it is only a small portion of the context, so overall relevancy remains low.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because sentence 1 is supported by node 1 in retrieval context, which states that every full-time employee gets an annual €2,000 professional development budget. Sentence 2 is also mostly supported by node 1, which says the budget resets on January 1, does not carry over, and expenses need manager pre-approval, but the phrase \"in NovaLearn\" is not found in any node in retrieval context.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.625,
+        "success": false,
+        "reason": "The score is 0.62 because the most relevant retrieval context node is ranked 1st and directly answers the question with \"Every full-time employee receives an annual professional development budget of €2,000,\" and the 8th node also repeats that same policy. However, several irrelevant nodes are ranked ahead of that second relevant node—such as the 2nd node about product pricing, the 3rd node about leave policy, and the 4th node about operating expenses—so the relevant information is not consistently placed above unrelated retrieval context nodes. That keeps the score below 1, but it is still fairly high because the key answer appears at the top and the other relevant node is present in the list.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q01",
+    "question": "How many days of paid time off do full-time employees get per year?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 100083,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because the actual output cites company_handbook.pdf and page 5, but the retrieval context does not mention either source detail, so that sourcing claim is unsupported by the provided facts.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because there were no irrelevant statements and the response stayed fully focused on answering the PTO question.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.037037037037037035,
+        "success": false,
+        "reason": "The score is 0.04 because most of the retrieval context is about unrelated topics like remote work, time tracking, and uptime, e.g. \"mandatory in-office day per week\" and \"Time Tracking\". Only one statement directly answers the question: \"All full-time employees receive twenty-five (25) days of paid time off (PTO) per calendar year.\"",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node 1 in retrieval context, which states that full-time employees receive 25 days of PTO per calendar year plus public holidays, and sentence 2 is also fully supported by node 1, which says part-time employees receive PTO on a pro-rata basis. Great match!",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the first node in the retrieval contexts directly answers the question with \"All full-time employees receive twenty-five (25) days of paid time off (PTO) per calendar year,\" and all later nodes are irrelevant nodes about sick leave, remote work, work hours, or software features, so the relevant node is ranked first and nothing should be placed above it.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q04",
+    "question": "What was NovaTech's Annual Recurring Revenue at the end of Q1 2026?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 142330,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.4,
+        "success": false,
+        "reason": "The score is 0.40 because the actual output makes unsupported placement claims: it says ARR of EUR 18.2 million was mentioned in the Executive Summary on page 1 and under 'Key Company Facts' on page 2, but the context only confirms ARR of EUR 18.2 million at Q1 2026 and a company facts section, without those specific page/section references or source filenames.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 0.7142857142857143,
+        "success": true,
+        "reason": "The score is 0.71 because the response is somewhat related to NovaTech’s financials, but it relies on a product guide instead of directly answering NovaTech’s ARR at the end of Q1 2026. It earns a moderate score because it is not completely off-topic, but it cannot be higher since the cited information does not directly support the requested ARR figure.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.09090909090909091,
+        "success": false,
+        "reason": "The score is 0.09 because most retrieved text is unrelated to the question, focusing on items like \"Quarterly recognized revenue,\" \"ProjectHub v3.2,\" \"headcount,\" and \"cash and cash equivalents at quarter-end stood at EUR 6.1M.\" Only a small portion directly answers the query, such as \"Annual Recurring Revenue (ARR) reached EUR 18.2 million at quarter-end\" and \"Annual recurring revenue (ARR) €18.2M (Q1 2026).\"",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node(s) in retrieval context: node 1 states ARR reached EUR 18.2 million at quarter-end with a 23% year-over-year increase from EUR 14.8 million, and node 4 also confirms ARR EUR 18.2M and 23% growth.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.6428571428571428,
+        "success": false,
+        "reason": "The score is 0.64 because the most relevant retrieval context nodes are ranked well: the 1st node says ARR \"reached EUR 18.2 million at quarter-end,\" and the 7th node explicitly lists \"Annual recurring revenue (ARR) €18.2M (Q1 2026),\" both directly answering the question. However, several irrelevant retrieval context nodes are placed above or between them—such as the 2nd node about staffing, the 3rd about expenses and cash, and the 4th about fiscal year 2025 ARR—so the relevant evidence is not consistently ranked before unrelated material, which keeps the score below 1.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q05",
+    "question": "What is the support response time for critical issues on the Enterprise tier?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 97364,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.3333333333333333,
+        "success": false,
+        "reason": "The score is 0.33 because the actual output includes source citations to a document name, section title, and page number that are not supported by the retrieval context; specifically, product_guide.pdf and page 14 are mentioned even though the context provides no such document or page reference.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response fully and directly addresses the question with no irrelevant content, so it’s as relevant as possible.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.2631578947368421,
+        "success": false,
+        "reason": "The score is 0.26 because much of the context is off-topic, such as “This is about ‘performance problems’ in the advanced reporting module, not the support response time for critical issues on the Enterprise tier,” and “The statement is about ‘Professional customers’ and their support hours, which is not relevant to the Enterprise tier support response time for critical issues.” However, it does contain the key answer: “Support response times vary by severity and tier, including Critical (service down) at … 15 minutes for Enterprise,” and “Enterprise customers receive 24/7 support with a dedicated support manager.”",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node 4 in retrieval context, which states “Critical (service down) ... Enterprise 15 minutes,” and node 2 further confirms the Enterprise support context. Great match!",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.6388888888888888,
+        "success": false,
+        "reason": "The score is 0.64 because the relevant information is not ranked consistently high enough: the first retrieval context node is irrelevant, while the key answer only appears at node 4, even though node 2 says \"Enterprise customers receive 24/7 support with a dedicated support manager,\" and node 3 mentions \"acknowledgment within 15 minutes of detection.\" It is not higher because several irrelevant nodes are placed above and among the relevant ones, such as node 1 about performance problems and node 5 about \"1 hour of detection,\" which should be ranked lower than the more useful Enterprise-support nodes. The score is still fairly strong because node 4 directly states \"Critical (service down) ... Enterprise 15 minutes,\" which clearly answers the question.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q06",
+    "question": "How quickly must a P1 critical security incident be acknowledged?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 92059,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.25,
+        "success": false,
+        "reason": "The score is 0.25 because the actual output refers to a source document named security_policy.pdf and cites a page/section labeled \"P1 — Critical,\" but the retrieval context only describes the incident-response policy and does not mention that document, page numbers, or such a section, so those details cannot be verified.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response fully addressed the question directly and no irrelevant statements were present.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.425531914893617,
+        "success": false,
+        "reason": "The score is 0.43 because the context includes the key policy line, \"A P1 critical security incident requires acknowledgment within 1 hour of detection,\" but it also contains conflicting and distracting details like \"P1 incidents require acknowledgment within 15 minutes of detection\" and many unrelated P2/P3/P4, containment, and encryption statements, so only part of the retrieval actually addresses the question.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the single sentence is fully supported by node(s) in retrieval context: node 4 covers acknowledgment within 15 minutes of detection, and nodes 1 and 4 support assembling the full Incident Response Team within 30 minutes and notifying the CEO, General Counsel, and Board Security Committee within 1 hour.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.75,
+        "success": true,
+        "reason": "The score is 0.75 because the first node in the retrieval contexts is relevant and already points to the P1 timing with \"The full Incident Response Team must be assembled within 30 minutes\" and \"minutes of detection,\" but irrelevant nodes appear before the other relevant node, including the 2nd and 3rd nodes about P2/P3/P4 timelines. It is not higher because those irrelevant nodes are ranked above the 4th node, which explicitly answers the question with \"P1 — Critical\" incidents \"require acknowledgment within 15 minutes of detection.\" The score is still fairly high because both relevant retrieval context nodes are present, but their ranking is weakened by the irrelevant nodes in between.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q07",
+    "question": "Compare the Professional and Enterprise support tiers.",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 91972,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.5714285714285714,
+        "success": false,
+        "reason": "The score is 0.57 because the actual output overstates the support-manager details: the context only says Enterprise customers get a dedicated support manager and that it’s available only on the Enterprise tier, but it does not say this is part of the standard package or explicitly an add-on, and it also cites product_guide.pdf page 14 even though the retrieval context does not mention that source.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 0.8571428571428571,
+        "success": true,
+        "reason": "The score is 0.86 because the response mostly addressed the comparison between the Professional and Enterprise support tiers, but it included an unnecessary source citation that did not help compare the tiers themselves. That extra irrelevant detail keeps it from being a perfect score, though the main content was still on target.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.40425531914893614,
+        "success": false,
+        "reason": "The score is 0.40 because the context does include direct support-tier details like \"Enterprise customers receive 24/7 support with a dedicated support manager\" and \"Professional customers receive support during extended business hours (06:00 - 22:00 CET, Monday to Friday),\" but much of it is off-topic, such as \"Feature Comparison by Tier,\" \"Commission a third-party analyst comparison report,\" and unrelated metrics like \"Enterprise had 52 accounts...\" and \"Top 10 customers alone represent 28% of total ARR.\"",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.0,
+        "success": false,
+        "reason": "The score is 0.00 because sentence 1 is only partially backed by node 1 in retrieval context, which supports extended business hours for Professional but not email support, live chat, or the 1-hour critical-issue response; sentence 2 is also only partially backed by node 1 and node 4, which mention Enterprise 24/7 support and a dedicated support manager but do not support live chat, phone support, or the 15-minute critical-issue response.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.75,
+        "success": true,
+        "reason": "The score is 0.75 because the first node in the retrieval contexts is relevant and directly compares support tiers, quoting that \"Enterprise customers receive 24/7 support with a dedicated support manager\" while \"Professional customers receive support during extended business hours (06:00 - 22:00 CET, Monday to Friday).\" However, it is not higher because the 2nd and 3rd nodes are irrelevant and appear before another relevant node at rank 4; for example, the 2nd node is about \"AI Task Prioritization Engine\" and \"Enhanced Gantt View,\" and the 3rd node only mentions \"Enterprise Renewal Risk\" and a downgrade to \"Professional tier\" without support details. The 4th node in the retrieval contexts is relevant too, citing \"Dedicated support manager €2,000/month Enterprise only,\" but it is ranked below those irrelevant nodes, so the relevant information is not perfectly prioritized.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q08",
+    "question": "What is the maximum nightly hotel rate for domestic and for international business travel?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 77418,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because the actual output appears to add unsupported details, including claiming the information is based on the provided context and citing company_handbook.pdf on page 7, neither of which is verified by the retrieval context.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response stayed fully on topic and directly addressed the question without any irrelevant statements. It can’t be higher than perfect, and it earned the full score by being entirely relevant.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.022222222222222223,
+        "success": false,
+        "reason": "The score is 0.02 because most retrieved material is unrelated, such as \"The context is about 'Meals and Incidentals'\" and \"This is about 'Taxi and ride-share services' and reimbursement, not the maximum nightly hotel rate.\" The only directly relevant line is \"The maximum nightly rate for hotel accommodation is €150 for domestic travel and €200 for international travel,\" so the context barely matches the question.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the single expected sentence is fully supported by node(s) in retrieval context 1 and 3, which state the EUR 150 domestic and EUR 200 international nightly limits plus the Finance-approved case-by-case exceptions for high-cost cities. Great match!",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.8333333333333333,
+        "success": true,
+        "reason": "The score is 0.83 because the most relevant information appears early in the retrieval contexts: the 1st node states, \"The maximum nightly rate for hotel accommodation is €150 for domestic travel and €200 for international travel,\" and the 3rd node adds the high-cost city exception. It is not higher because the 2nd node is an irrelevant hotel-policy miss about meals and incidentals, so an irrelevant node is ranked above a relevant one. The score is still high since the relevant retrieval contexts are ranked near the top overall, with several later nodes clearly unrelated to hotel travel limits.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q09",
+    "question": "How was Q1 2026 revenue split by product line?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 118410,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because the actual output includes an unverified source file name or page number, but the retrieval context does not mention those details, so that claim cannot be confirmed from the provided facts.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response was fully relevant to the question and contained no irrelevant statements. It can’t be higher than perfect, and it deserves the top score for staying entirely on topic.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.15492957746478872,
+        "success": false,
+        "reason": "The score is 0.15 because most of the retrieved material is unrelated to the question about Q1 2026 revenue split by product line, e.g. it mentions \"Churned Customers,\" \"customer additions,\" and \"gross churn rate\" rather than product-line revenue. However, there is some directly relevant financial data, including \"Revenue by Product Line in Q1 2026 was ProjectHub EUR 3.36M (70%), Insight EUR 1.20M (25%), and Professional Services EUR 0.24M (5%),\" plus \"Subscription Revenue 4,370,000\" and \"Professional Services Revenue 240,000.\"",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node 3 in retrieval context, which explicitly lists ProjectHub EUR 3.36M (70%, +26% YoY), Insight EUR 1.20M (25%, +31% YoY), and Professional Services EUR 0.24M (5%, +12% YoY).",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.3666666666666667,
+        "success": false,
+        "reason": "The score is 0.37 because the first two retrieval context nodes are irrelevant to the question—rank 1 is about \"Revenue Concentration by Tier\" and customer tiers, and rank 2 only mentions overall revenue/product activity without the actual product-line split—so they should be ranked lower than the relevant nodes. The relevant retrieval context nodes appear at rank 3 with \"This directly answers the question\" and the exact table under \"2.2 Revenue by Product Line\" showing ProjectHub, Insight, and Professional Services, and rank 5 also supports the breakdown with \"Professional Services Revenue 240,000\" and \"Subscription Revenue 4,370,000.\" The score is not higher because several irrelevant retrieval context nodes still appear before and after the useful ones, but it is above zero because the key answer is present near the top and clearly identifies the product-line revenue split.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q10",
+    "question": "What uptime SLA does each pricing tier get?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 109147,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.3333333333333333,
+        "success": false,
+        "reason": "The score is 0.33 because the actual output makes unsupported claims about a Professional-tier uptime SLA and downtime figure: the context only mentions Starter and Enterprise uptime SLAs, supports Enterprise’s ~21 minute maximum monthly downtime, and does not provide any Professional-tier percentage or downtime. It also refers to source document names/page numbers that the retrieval context does not identify.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response would be fully relevant to the question, with no irrelevant statements to reduce its quality. It answers the uptime SLA for each pricing tier directly and completely.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.11290322580645161,
+        "success": false,
+        "reason": "The score is 0.11 because most of the retrieval context is unrelated, such as \"This statement is about service credits, not the uptime SLA each pricing tier gets\" and \"This is about pricing amounts, not uptime SLA terms.\" Only a small part is relevant, including \"NovaTech provides uptime guarantees based on tier\" and \"Starter 99.5% ~3 hours 39 minutes Calendar month,\" so it only partially answers the question.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.0,
+        "success": false,
+        "reason": "The score is 0.00 because sentence 1 is only partially supported by node 1 in retrieval context, which states Starter 99.5% (~3 hours 39 minutes) and Enterprise 99.95% (~21 minutes), but the Professional 99.9% (~43 minutes) part is not found in any node in retrieval context.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the relevant nodes in the retrieval contexts are ranked first and second, and both clearly answer the uptime SLA question with 'Enterprise 99.95% ~21 minutes' and 'Starter 99.5% ~3 hours 39 minutes'. All irrelevant nodes are ranked lower, where they discuss bundle pricing, price changes, revenue, SAP integration, customer metrics, or pricing tables without uptime guarantees, so they correctly appear after the useful retrieval contexts.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q11",
+    "question": "Which CRM did the leadership team choose and why?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 117483,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.375,
+        "success": false,
+        "reason": "The score is 0.38 because the actual output appears to claim HubSpot Enterprise had a lower 3-year TCO than Freshsales, but the context says HubSpot was EUR 385K versus Freshsales at EUR 240K, so HubSpot was not cheaper. It also overstates specifics the context does not confirm, like Freshsales being initially chosen for low cost, the choice being narrowed only to Salesforce and HubSpot, and a citation to meeting_notes.pdf/page details.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response fully and directly addressed which CRM the leadership team chose and why, with no irrelevant statements or off-topic content.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.1,
+        "success": false,
+        "reason": "The score is 0.10 because most of the retrieval context is unrelated—e.g., it talks about \"Q1 Planning & Strategic Initiatives,\" \"Lisbon office expansion approved,\" and \"remote work policy\" rather than the CRM decision. Only a small part is relevant, such as \"Decision: HubSpot Enterprise selected\" and the TCO comparison between \"Salesforce,\" \"HubSpot,\" and \"Freshsales,\" which does address which CRM was chosen and why.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.6666666666666666,
+        "success": false,
+        "reason": "The score is 0.67 because sentence 2 is well supported by node 1 in retrieval context, which matches the 3-year TCO figures and Freshsales capability rationale, and sentence 3 is also supported by node 1 via the April 15 go-live. However, sentence 1 is only partially attributable: node 1 supports the HubSpot Enterprise selection, but it does not mention the February 12 meeting.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the relevant nodes in retrieval contexts are ranked at the very top: the 1st node directly says \"HubSpot Enterprise selected\" with the TCO comparison and enterprise-capability rationale, and the 2nd node provides closely related CRM-decision context that helps confirm the choice. All irrelevant nodes are ranked below these two and stay on unrelated topics, so the ranking is perfectly precise.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q12",
+    "question": "Which Enterprise accounts are at risk of not renewing, and how much ARR is at risk in total?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 101126,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.8888888888888888,
+        "success": true,
+        "reason": "The score is 0.89 because the actual output appears to cite a document name or page number that the retrieval context does not mention, so that detail cannot be verified from the provided facts.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because there were no irrelevant statements, and the response stayed fully focused on identifying at-risk Enterprise accounts and total ARR at risk.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.2127659574468085,
+        "success": false,
+        "reason": "The score is 0.21 because most of the retrieval context is unrelated noise, such as \"Commission a third-party analyst comparison report\" and \"Administrative and privileged accounts are subject to additional controls,\" which do not answer the renewal-risk question. However, it does contain the key facts that \"Three Enterprise accounts with renewals in Q2-Q3 2026 have been flagged as at-risk\" and that \"The total at-risk ARR is EUR 420K,\" so it is only partially relevant.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node(s) in retrieval context 1 and 2, which both list the same three accounts and amounts (Gruber Manufacturing EUR 178K June 2026, Rheinland Utilities AG EUR 148K July 2026, Alpen Logistics EUR 94K May 2026), and sentence 2 is also matched by node(s) 1 and 2 with the exact total at-risk ARR of EUR 420K (2.3% of ARR).",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the relevant nodes in retrieval contexts are ranked at the top: node 1 directly lists the at-risk Enterprise accounts and total ARR, node 2 confirms that 'Three Enterprise accounts totaling EUR 420,000 in ARR have flagged potential non-renewal for Q2 and Q3,' and node 3 further supports that 'three accounts have been flagged as at-risk for upcoming renewals.' The irrelevant nodes only appear later, and their quoted topics like 'Privileged Access Management' or a pricing table are unrelated to renewal risk, so they are correctly ranked lower.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q14",
+    "question": "How often do employees have to change their passwords?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 113053,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.8571428571428571,
+        "success": true,
+        "reason": "The score is 0.86 because the actual output adds that the team supported Marcus’s extension proposal, even though the context only says Marcus proposed the extension and never confirms team support.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 0.8571428571428571,
+        "success": true,
+        "reason": "The score is 0.86 because the response was mostly relevant to the password-change question, but it included an unrelated statement about the team supporting the proposal instead of directly answering how often employees must change their passwords.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.19607843137254902,
+        "success": false,
+        "reason": "The score is 0.20 because the context only partially addresses the question: it does include password rotation details like \"Password rotation is required every ninety (90) days\" and \"the current IT security policy mandates password changes every 90 days for all systems,\" but much of the rest is about unrelated topics such as \"remote work policy,\" \"incident response procedures,\" and \"health and safety.\"",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because sentence 1 is supported by node(s) in retrieval context 2 and 4, which state the 90-day handbook policy, and sentence 2 is partly supported by those same nodes for the 180-day extension and infra 90-day exception, but the specific “March 5, 2026 meeting” in sentence 2 is not found in any retrieval context node.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the relevant nodes in retrieval contexts are ranked at the top: the 1st, 2nd, and 3rd nodes all directly answer the password-change question with '90 days' / 'extended from 90 days to 180 days' details, while the later nodes in retrieval contexts are irrelevant topics like encryption keys, incident response, training, ergonomics, and remote work that should be ranked lower. Since all useful nodes come before the irrelevant ones, the ranking is perfectly precise.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q13",
+    "question": "How many days per week can employees work remotely?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 114101,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.6666666666666666,
+        "success": false,
+        "reason": "The score is 0.67 because the actual output includes policy details that are supported by the context, but it incorrectly cites specific sources and pages like company_handbook.pdf page 4 and meeting_notes.pdf page 7, which are not mentioned in the retrieval context.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response fully and directly addresses the question about remote workdays per week, with no irrelevant statements or distractions.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.4230769230769231,
+        "success": false,
+        "reason": "The score is 0.42 because the context does contain the direct answer — \"Employees in eligible roles may work remotely for up to three (3) days per week\" — but it is diluted by many unrelated details like \"twenty-five (25) days of paid time off (PTO) per calendar year\" and \"password changes every 90 days for all systems.\" It also includes conflicting forward-looking policy text such as \"Remote work policy updated to allow up to 4 days remote per week, effective Q3 2026,\" so only part of the retrieval is relevant to the current question.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node 1 in retrieval context, which matches the handbook’s 3 days per week rule and 1 day during probation, and sentence 2 is fully supported by nodes 2, 3, and 8 in retrieval context, which state the move to 4 days from Q3 2026, Tuesday as the mandatory in-office day, and that department heads may require more office days with HR approval.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.8928571428571428,
+        "success": true,
+        "reason": "The score is 0.89 because the most relevant nodes in retrieval contexts are ranked very high: the 1st node directly answers with 'three (3) days per week,' and the 2nd, 3rd, and 7th nodes also support the remote-work limit with '4 days to 4 days per week,' '4 days remote / 1 day in-office (Tuesday),' and 'allow up to 4 days remote per week.' It is not higher because several irrelevant nodes are placed before a later relevant node: the 4th node is about 'mandatory in-office day per week' rather than remote frequency, the 5th node is about 'core collaboration window of 10:00–15:00 CET,' the 6th node is about 'Annual Leave' and 'Sick Leave,' and the 8th node is about 'Password Rotation Policy Review.' These irrelevant nodes should be ranked lower than the relevant retrieval context nodes since they do not help answer how many days per week employees can work remotely.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q15",
+    "question": "What does the Professional tier cost per user per month?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 93947,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.0,
+        "success": false,
+        "reason": "The score is 0.00 because the actual output reverses the Professional tier pricing, claiming €66 monthly and €79 annually when the context says Professional is €79 per user per month billed monthly and €66 per user per month billed annually. It also गलतely states the Professional bundle for ProjectHub and Insight is €66, even though the annual bundle price is €112 per user per month, and it misattributes the €49 bundle price, which belongs to the Starter bundle, not the Professional bundle.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 0.6666666666666666,
+        "success": false,
+        "reason": "The score is 0.67 because the response was somewhat on-topic about pricing, but it didn’t directly answer the Professional tier cost per user per month and instead brought up unrelated bundle pricing for ProjectHub and Insight. It’s not higher for that reason, but it still earns a middling score because it stayed within the general pricing context.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.075,
+        "success": false,
+        "reason": "The score is 0.07 because most of the retrieved content is unrelated to the question, e.g. it says the material is about “Starter pricing,” “Enterprise Custom pricing,” and “Additional storage” rather than the Professional tier cost per user per month. However, there are a few directly relevant pricing lines such as “Professional €79/user/month €66/user/month 10” and “Professional €134/user/month (instead of€158) €112/user/month,” so the context has a small amount of useful information but is mostly off-topic.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.5,
+        "success": false,
+        "reason": "The score is 0.50 because sentence 1 is only partly supported by node 1 in retrieval context, which matches the guide pricing at EUR 79 per user per month and EUR 66 billed annually. However, the second claim in sentence 1 about the February notes listing EUR 59 is not found in any node, and no node in retrieval context supports the conclusion that the documents disagree.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the first node in the retrieval contexts directly answers the question with the Professional tier price, while the remaining nodes are irrelevant pricing-wise and should be ranked lower since they discuss bundles, training budgets, FAQs, expenses, SLAs, support services, or metrics rather than the standalone per-user monthly cost.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q16",
+    "question": "When was ProjectHub v3.2 released?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 102347,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.3333333333333333,
+        "success": false,
+        "reason": "The score is 0.33 because the actual output states ProjectHub v3.2 was released on January 28, 2026, which contradicts the context that says it was shipped/released on February 12, 2026; it also seems to conflate the release date with the meeting date, which the context does not support.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response is fully relevant to the question and contains no irrelevant statements. It directly addresses the release timing of ProjectHub v3.2, so it cannot reasonably be higher.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.0547945205479452,
+        "success": false,
+        "reason": "The score is 0.05 because most of the context is unrelated to the question, since it focuses on items like \"Conference Room A (Munich HQ) / Teams hybrid,\" feature lists, pricing, and API endpoints that \"do not answer when ProjectHub v3.2 was released.\" Only a small portion is relevant, including \"ProjectHub v3.2 was released on February 12, 2026,\" which directly answers the input.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because sentence 1 is fully supported by node(s) in retrieval context: node 1 says it shipped on January 28, two weeks behind schedule, and node 6 says it was released on February 12, 2026. Together they support the disagreement stated in the expected output.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.7,
+        "success": true,
+        "reason": "The score is 0.70 because the first node in the retrieval contexts is relevant and directly says ProjectHub v3.2 was \"shipped January 28,\" but several irrelevant nodes are ranked above another relevant node, which lowers precision. In particular, the 2nd, 3rd, and 4th nodes are irrelevant to release timing, while the 5th node is relevant and explicitly states, \"ProjectHub v3.2 was released on February 12, 2026,\" so that useful node should appear earlier. The remaining nodes are irrelevant and come after the relevant ones, which is why the score is decent but not higher.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q17",
+    "question": "What is the company's position on remote work for contractors?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 103883,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.625,
+        "success": false,
+        "reason": "The score is 0.62 because the actual output introduces an unsupported Security Policy (Section 11) and a temporary-access rule for contractors, but the retrieval context does not mention either. It also speculates about contractors’ access versus remote-work arrangements and claims the AI could not find the information, none of which is confirmed by the provided text.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response is fully focused on the company’s remote-work policy for contractors and includes no irrelevant statements. It can’t be higher because 1.00 is already a perfect score.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.47058823529411764,
+        "success": false,
+        "reason": "The score is 0.47 because the context is only partially relevant: many lines focus on employees, like \"The current remote work policy allows up to 3 days remote per week\" and \"Employees must be reachable via Slack and email,\" while the irrelevancy notes correctly say it \"does not address contractors\" and is \"not directly relevant to the company's position on remote work for contractors.\" It gives some remote-work policy details, but not a clear contractor-specific answer.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.0,
+        "success": false,
+        "reason": "The score is 0.00 because sentence 1 in the expected output cannot be attributed to node(s) in retrieval context: no node states contractor remote work policies. The closest evidence is in nodes 1, 2, 4, and 5, which only describe employee remote work rules (for example, stable internet requirements and up to 3 days remote) or contractor access/security terms in node 4, but nothing about contractors' remote work policy.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.8875,
+        "success": true,
+        "reason": "The score is 0.89 because the top retrieval contexts are mostly relevant: the 1st node in the retrieval contexts says the policy is employee-focused, the 2nd node also covers employee remote/hybrid work, and the 4th node is the only one that explicitly mentions contractors with the quote \"Temporary access (for contractors, project-based work, or cross-team collaboration)\". It is not higher because an irrelevant node appears at rank 3 before that contractor-related node, and several other irrelevant nodes are mixed in later, so the relevant nodes are not perfectly concentrated above the irrelevant ones.",
+        "error": null
+      }
+    }
+  },
+  {
+    "id": "q18",
+    "question": "What is the CEO's annual salary?",
+    "model": "qwen3.5:4b-q4_K_M",
+    "generation_time_ms": 80713,
+    "judge": "gpt-5.4-mini",
+    "metrics": {
+      "Faithfulness": {
+        "score": 0.75,
+        "success": true,
+        "reason": "The score is 0.75 because the context does include extensive information about the company and handbook, but the claim is too ambiguous to verify whether the specific requested information was actually answered.",
+        "error": null
+      },
+      "Answer Relevancy": {
+        "score": 1.0,
+        "success": true,
+        "reason": "The score is 1.00 because the response fully addresses the question and there are no irrelevant statements, so it is perfectly focused and complete.",
+        "error": null
+      },
+      "Contextual Relevancy": {
+        "score": 0.02127659574468085,
+        "success": false,
+        "reason": "The score is 0.02 because the context is overwhelmingly unrelated to salary, covering items like a \"quarterly business report for Q1 2026\" and \"company performance and revenue,\" while the only relevant snippet is just \"CEO, Marcus Weber (CTO), Priya Anand (CFO),\" which names the CEO but gives no annual salary.",
+        "error": null
+      },
+      "Contextual Recall": {
+        "score": 0.0,
+        "success": false,
+        "reason": "The score is 0.00 because sentence 1 claims the documents do not contain the CEO’s salary, but node(s) in retrieval context 1 and 4 only mention the CEO (e.g., “Approved by: Sarah Chen, CEO” and “Marcus Weber (CEO)”) without stating salary information, so this absence cannot be directly attributed to the retrieved nodes.",
+        "error": null
+      },
+      "Contextual Precision": {
+        "score": 0.5833333333333333,
+        "success": false,
+        "reason": "The score is 0.58 because the two relevant retrieval contexts appear at ranks 2 and 3, after an irrelevant first node that only mentions a CEO approval line and no annual salary. It is not higher because several irrelevant nodes are ranked above and below the useful compensation-related nodes, such as rank 1 and ranks 4–8, which discuss things like a handbook, a training budget of \"€2,000\", pricing tables, headcount, and key hires rather than the CEO’s annual salary. It is still above a low score because the relevant nodes do show some compensation connection with quotes like \"developmental in nature and do not directly determine compensation changes\" and \"directly informs compensation adjustments,\" so the ranking contains some useful context, but not early or exclusively enough for a higher precision score.",
+        "error": null
+      }
+    }
+  }
+]
