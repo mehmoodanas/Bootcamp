@@ -17,15 +17,16 @@ EMBEDDING_API_KEY = os.getenv("EMBEDDING_API_KEY", "ollama")
 
 # Documents and vector database
 DOCUMENTS_DIR = "documents"
-CHROMA_DIR = "chroma_db"
+CHROMA_DIR = os.getenv("CHROMA_DIR", "chroma_db_1000")  # use a separate folder per chunk size experiment
 COLLECTION_NAME = "bootcamp_docs"
 
 # Chunking (unit: characters, RecursiveCharacterTextSplitter counts characters)
-CHUNK_SIZE = 512
-CHUNK_OVERLAP = 50
+# Chosen after testing: 1000/80 with top_k 8 passed 17/18 vs 14/18 for 512/50 with top_k 5
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
+CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "80"))
 
 # Retrieval
-TOP_K = 5
+TOP_K = int(os.getenv("TOP_K", "8"))
 
 # Generation
 SYSTEM_PROMPT = """You are a helpful assistant answering questions based on provided context.

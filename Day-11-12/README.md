@@ -17,7 +17,8 @@ works in a regulated industry and cannot send data to a cloud AI service.
 | `benchmark.py` | Exercise 1: compares local models on speed and quality |
 | `test_questions.json` | 18 test questions with expected answers |
 | `benchmark_results.json` | Exercise 1 results with hand-filled quality ratings |
-| `pipeline_outputs.json` | The pipeline run over all test questions (evaluated on Day 12) |
+| `pipeline_outputs.json` | Final pipeline run: qwen3.5:4b, 1000 characters, top_k 8 (evaluated on Day 12) |
+| `pipeline_outputs_*.json` | Experiment runs: 4b and llama3.2:3b with 512/top_k 5 and 1000/top_k 8 |
 | `Day-11/decision_log.md` | Day 11 decision log (written by hand) |
 | `Day-12/` | Day 12 evaluation report |
 | `AGENTS.md` | Instructions for the AI coding assistant |
@@ -51,13 +52,13 @@ which ChromaDB imports.
 ## How to run
 
 ```powershell
-uv run python ingest.py                       # rebuilds chroma_db/ (not committed)
+uv run python ingest.py                       # rebuilds chroma_db_1000/ (not committed)
 uv run python pipeline.py "your question"     # ask one question
 uv run python pipeline.py                     # run all test questions, writes pipeline_outputs.json
 uv run python benchmark.py                    # Exercise 1, writes benchmark_results.json
 ```
 
-`chroma_db/` is not in the repository. `uv run python ingest.py` rebuilds it from the PDFs.
+The `chroma_db*/` folders are not in the repository. `uv run python ingest.py` rebuilds them from the PDFs.
 
 ## Switching to the cloud model (Day 12)
 
@@ -70,15 +71,16 @@ $env:LLM_MODEL = "gpt-5.6-luna"
 $env:TOKEN_LIMIT_PARAM = "max_completion_tokens"
 ```
 
-Embeddings stay local, so the same `chroma_db/` serves both runs.
+Embeddings stay local, so the same `chroma_db_1000/` serves both runs.
 
 ## Configuration used
 
 - LLM: `qwen3.5:4b-q4_K_M`, thinking off (`reasoning_effort="none"`), temperature 0.3, max 1024 tokens
 - Embeddings: `nomic-embed-text` (768 dimensions), cosine distance
 - Parsing: pypdf with `extraction_mode="layout"`
-- Chunking: 512 characters, 50 characters overlap (RecursiveCharacterTextSplitter, per page)
-- Retrieval: top_k = 5
+- Chunking: 1000 characters, 80 characters overlap (RecursiveCharacterTextSplitter, per page)
+- Retrieval: top_k = 8
+- Vector store folder: `chroma_db_1000/`
 - Context window: 8192 tokens
 
 ## AI assistant used

@@ -28,8 +28,8 @@
     "prompt_tokens": 49,
     "completion_tokens": 288,
     "tokens_per_second": 6.8,
-    "quality_rating": 4,
-    "rating_note": "Correct 80 km/h, clear steps, a bit long"
+    "quality_rating": 5,
+    "rating_note": "Correct 80 km/h with clear steps"
   },
   {
     "model": "qwen3.5:4b-q4_K_M",
@@ -108,8 +108,8 @@
     "prompt_tokens": 93,
     "completion_tokens": 33,
     "tokens_per_second": 4.2,
-    "quality_rating": 4,
-    "rating_note": "Correct refusal sentence, but added an extra sentence"
+    "quality_rating": 5,
+    "rating_note": "Refused correctly with the exact sentence, plus a short explanation"
   },
   {
     "model": "qwen3.5:2b-q4_K_M",
@@ -140,7 +140,7 @@
     "prompt_tokens": 49,
     "completion_tokens": 443,
     "tokens_per_second": 14.4,
-    "quality_rating": 3,
+    "quality_rating": 4,
     "rating_note": "Correct 80 km/h, but long with a confusing extra note"
   },
   {
@@ -222,5 +222,117 @@
     "tokens_per_second": 5.3,
     "quality_rating": 1,
     "rating_note": "Hallucinated 25 days PTO instead of refusing"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "factual",
+    "prompt": "What causes tides on Earth? Answer in 2-3 sentences.",
+    "response": "Tides on Earth are primarily caused by the gravitational pull of the Moon and, to a lesser extent, the Sun. As the Moon orbits the Earth, it creates a force that pulls the ocean water towards it, resulting in the rise and fall of the sea level, which we experience as high and low tides. The Sun also contributes to tides, although its effect is much weaker than the Moon's.",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 10.77,
+    "prompt_tokens": 40,
+    "completion_tokens": 84,
+    "tokens_per_second": 7.8,
+    "quality_rating": 5,
+    "rating_note": "Correct, Moon and Sun explained, 3 sentences"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "reasoning",
+    "prompt": "If a train travels 120km in 1.5 hours, and then 80km in 1 hour, what is the average speed for the entire journey?",
+    "response": "To find the average speed for the entire journey, we need to calculate the total distance traveled and the total time taken.\n\nTotal distance = 120km + 80km = 200km\n\nTotal time = 1.5 hours + 1 hour = 2.5 hours\n\nAverage speed = Total distance / Total time\n= 200km / 2.5 hours\n= 80km/h\n\nSo, the average speed for the entire journey is 80km/h.",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 15.35,
+    "prompt_tokens": 59,
+    "completion_tokens": 100,
+    "tokens_per_second": 6.5,
+    "quality_rating": 5,
+    "rating_note": "Correct 80 km/h, short and clear"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "summarization",
+    "prompt": "Summarize the following paragraph in one sentence:\n\nNovaTech Solutions supports hybrid work arrangements. Employees in eligible roles may work remotely for up to three days per week, subject to manager approval. Employees still within their six month probationary period may work remotely for up to one day per week. Each team must designate at least one mandatory in-office day per week for collaborative work.",
+    "response": "NovaTech Solutions allows employees to work remotely for a maximum of three days a week, with varying restrictions and requirements for probationary period employees and mandatory in-office days.",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 7.01,
+    "prompt_tokens": 100,
+    "completion_tokens": 34,
+    "tokens_per_second": 4.9,
+    "quality_rating": 4,
+    "rating_note": "One sentence, but vague about probation and office day, misses manager approval"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "structured",
+    "prompt": "List 3 European capitals. Respond ONLY with valid JSON: [{\"city\": ..., \"country\": ...}]",
+    "response": " [{\"city\": \"Paris\", \"country\": \"France\"}, {\"city\": \"Berlin\", \"country\": \"Germany\"}, {\"city\": \"Rome\", \"country\": \"Italy\"}]",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 5.9,
+    "prompt_tokens": 46,
+    "completion_tokens": 39,
+    "tokens_per_second": 6.6,
+    "quality_rating": 5,
+    "rating_note": "Valid JSON"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "code",
+    "prompt": "Write a Python function is_palindrome(text) that returns True if the text reads the same forwards and backwards, ignoring case and spaces. Only the code, no explanation.",
+    "response": "```python\ndef is_palindrome(text):\n    text = ''.join(e for e in text if e.isalnum()).lower()\n    return text == text[::-1]\n```",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 5.81,
+    "prompt_tokens": 59,
+    "completion_tokens": 36,
+    "tokens_per_second": 6.2,
+    "quality_rating": 4,
+    "rating_note": "Correct and works, but wrapped in code markers although only code was asked"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "instruction_following",
+    "prompt": "Give exactly 3 tips for writing good test questions for a RAG system. Use a numbered list, maximum 12 words per tip, and no other text.",
+    "response": "1. Clearly define the learning objectives for each test question.\n2. Use specific, measurable language to assess skill mastery.\n3. Avoid ambiguity and ensure test questions align with standards.",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 5.82,
+    "prompt_tokens": 58,
+    "completion_tokens": 37,
+    "tokens_per_second": 6.4,
+    "quality_rating": 3,
+    "rating_note": "Format followed, but all 3 tips are about school tests, not RAG test questions"
+  },
+  {
+    "model": "llama3.2:3b",
+    "category": "grounded_qa",
+    "prompt": "Answer ONLY from the context. If the answer is not in the context, say \"I cannot find this information in the provided documents.\"\n\nContext: All full-time employees receive twenty-five (25) days of paid time off per calendar year. Unused PTO may be carried over up to a maximum of five (5) days.\n\nQuestion: How many sick days do employees get per year?",
+    "response": "I cannot find this information in the provided documents.",
+    "thinking": false,
+    "reasoning_effort": "none",
+    "temperature": 0.7,
+    "finish_reason": "stop",
+    "time_seconds": 4.14,
+    "prompt_tokens": 103,
+    "completion_tokens": 11,
+    "tokens_per_second": 2.7,
+    "quality_rating": 5,
+    "rating_note": "Refused with exactly the required sentence"
   }
 ]

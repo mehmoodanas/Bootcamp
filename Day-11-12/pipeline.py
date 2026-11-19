@@ -5,6 +5,7 @@ Run all test questions:    uv run python pipeline.py
 The second form writes pipeline_outputs.json (Day 12 evaluates this file).
 """
 import json
+import os
 import sys
 import time
 
@@ -13,7 +14,8 @@ from generate import generate_answer
 from retrieve import retrieve_chunks
 
 TEST_FILE = "test_questions.json"
-OUTPUT_FILE = "pipeline_outputs.json"
+# Save each model's run in its own file, e.g. $env:PIPELINE_OUTPUT = "pipeline_outputs_llama3.2_3b.json"
+OUTPUT_FILE = os.getenv("PIPELINE_OUTPUT", "pipeline_outputs.json")
 
 
 def answer_question(query: str) -> dict:

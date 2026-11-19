@@ -4,6 +4,7 @@ Run:  uv run python benchmark.py
 Writes benchmark_results.json. Fill in quality_rating and rating_note by hand afterwards.
 """
 import json
+import os
 import subprocess
 import time
 
@@ -11,7 +12,9 @@ from openai import OpenAI
 
 import config
 
-MODELS = ["qwen3.5:4b-q4_K_M", "qwen3.5:2b-q4_K_M"]
+# Which models to run. Override to add a model without re-running the others, e.g.
+#   $env:BENCH_MODELS = "llama3.2:3b"
+MODELS = os.getenv("BENCH_MODELS", "qwen3.5:4b-q4_K_M,qwen3.5:2b-q4_K_M").split(",")
 TEMPERATURE = 0.7
 MAX_TOKENS = 1024
 OUTPUT_FILE = "benchmark_results.json"
@@ -111,9 +114,16 @@ def main() -> None:
         # Free the RAM before loading the next model (16 GB laptop)
         subprocess.run(["ollama", "stop", model], check=False)
 
+    # Keep the rows (and hand-filled ratings) of models that were not re-run this time
+    old_rows = []
+    if os.path.exists(OUTPUT_FILE):
+        with open(OUTPUT_FILE, encoding="utf-8") as f:
+            old_rows = [r for r in json.load(f) if r["model"] not in MODELS]
+    all_rows = old_rows + results
+
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(results, f, indent=2, ensure_ascii=False)
-    print(f"\nSaved {len(results)} rows to {OUTPUT_FILE}")
+        json.dump(all_rows, f, indent=2, ensure_ascii=False)
+    print(f"\nSaved {len(results)} new rows ({len(all_rows)} in total) to {OUTPUT_FILE}")
     print("Now open the file and fill in quality_rating (1-5) and rating_note for every row.")
 
 
