@@ -30,6 +30,7 @@ TOP_K = 5
 # Generation
 SYSTEM_PROMPT = """You are a helpful assistant answering questions based on provided context.
 Use ONLY the context below to answer. If the answer is not in the context, say "I cannot find this information in the provided documents."
+Each context chunk is labelled with its source document and page. When you answer, name the source and page you used.
 
 Context:
 {context}
