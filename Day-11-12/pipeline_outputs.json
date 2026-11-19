@@ -53,8 +53,8 @@
     "difficulty": "easy",
     "type": "factual",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: 25 days, cites handbook p5"
   },
   {
     "id": "q02",
@@ -110,8 +110,8 @@
     "difficulty": "easy",
     "type": "factual",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: 10 sick days and certificate after 3 consecutive days"
   },
   {
     "id": "q03",
@@ -167,8 +167,8 @@
     "difficulty": "easy",
     "type": "factual",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct amount EUR 2,000; does not mention reset or no carry-over"
   },
   {
     "id": "q04",
@@ -224,8 +224,8 @@
     "difficulty": "easy",
     "type": "factual",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct EUR 18.2M; missing the 23% YoY growth"
   },
   {
     "id": "q05",
@@ -281,8 +281,8 @@
     "difficulty": "easy",
     "type": "factual",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: 15 minutes, cites product guide p14"
   },
   {
     "id": "q06",
@@ -338,8 +338,8 @@
     "difficulty": "easy",
     "type": "factual",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: 15 minutes; leaves out the 30 min team and 1 h CEO steps"
   },
   {
     "id": "q07",
@@ -395,8 +395,8 @@
     "difficulty": "medium",
     "type": "comparison",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": false,
+    "rating_note": "Incomplete: retrieval missed product guide p14, so no response times and no support hours"
   },
   {
     "id": "q08",
@@ -452,8 +452,8 @@
     "difficulty": "medium",
     "type": "comparison",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: EUR 150 domestic, EUR 200 international"
   },
   {
     "id": "q09",
@@ -509,8 +509,8 @@
     "difficulty": "medium",
     "type": "table",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct amounts and shares from the table; YoY growth missing"
   },
   {
     "id": "q10",
@@ -566,8 +566,8 @@
     "difficulty": "medium",
     "type": "table",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": false,
+    "rating_note": "Wrong numbers: SLA table split across pages 13 and 14, Starter and Professional rows not retrieved, model invented 99.95% and 99.99%"
   },
   {
     "id": "q11",
@@ -623,8 +623,8 @@
     "difficulty": "medium",
     "type": "synthesis",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": false,
+    "rating_note": "Wrong: says the CRM decision was deferred; the HubSpot decision is in the next chunk, which was not retrieved"
   },
   {
     "id": "q12",
@@ -680,8 +680,8 @@
     "difficulty": "medium",
     "type": "table",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: three accounts and EUR 420K total; per-account amounts missing"
   },
   {
     "id": "q13",
@@ -737,8 +737,8 @@
     "difficulty": "hard",
     "type": "conflicting_sources",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Finds both 3 days (handbook) and 4 days (meeting); but presents 4 days as current although it starts in Q3 2026"
   },
   {
     "id": "q14",
@@ -794,8 +794,8 @@
     "difficulty": "hard",
     "type": "conflicting_sources",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Finds 90 and 180 days; calls 180 a proposal and misses that infrastructure stays at 90"
   },
   {
     "id": "q15",
@@ -851,8 +851,8 @@
     "difficulty": "hard",
     "type": "conflicting_sources",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct: shows both EUR 79 (product guide) and EUR 59 (meeting notes)"
   },
   {
     "id": "q16",
@@ -908,8 +908,8 @@
     "difficulty": "hard",
     "type": "conflicting_sources",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": false,
+    "rating_note": "States Feb 12 as the release date and mentions Jan 28 only as a side note; does not flag the conflict"
   },
   {
     "id": "q17",
@@ -965,8 +965,8 @@
     "difficulty": "hard",
     "type": "unanswerable",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct refusal with the exact sentence"
   },
   {
     "id": "q18",
@@ -1022,7 +1022,7 @@
     "difficulty": "hard",
     "type": "unanswerable",
     "error": null,
-    "passed": null,
-    "rating_note": ""
+    "passed": true,
+    "rating_note": "Correct refusal with the exact sentence"
   }
 ]
