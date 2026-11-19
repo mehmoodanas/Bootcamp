@@ -20,6 +20,7 @@ Local RAG pipeline over the 5 PDFs in `documents/` (Day 11 and Day 12 capstone).
 - Rebuild the vector DB: `uv run python ingest.py`
 - Benchmark: `uv run python benchmark.py`
 - Run all test questions: `uv run python pipeline.py`
+- Compare embedding models (retrieval only): build `chroma_db_mxbai/` with `EMBEDDING_MODEL=mxbai-embed-large` and `CHROMA_DIR=chroma_db_mxbai`, then `uv run python compare_embeddings.py`
 
 ## Checks
 - After ingest: print `collection.count()`; it must not change when ingest runs again.
