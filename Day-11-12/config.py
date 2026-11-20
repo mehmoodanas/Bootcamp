@@ -21,12 +21,13 @@ CHROMA_DIR = os.getenv("CHROMA_DIR", "chroma_db_1000")  # use a separate folder 
 COLLECTION_NAME = "bootcamp_docs"
 
 # Chunking (unit: characters, RecursiveCharacterTextSplitter counts characters)
-# Chosen after testing: 1000/80 with top_k 8 passed 17/18 vs 14/18 for 512/50 with top_k 5
+# Chosen after testing: 512/50 top_k 5 passed 14/18; 1000/80 top_k 8 passed 17/18;
+# 1000/80 top_k 5 also passed 17/18 and is about twice as fast, so top_k 5 is final
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "80"))
 
 # Retrieval
-TOP_K = int(os.getenv("TOP_K", "8"))
+TOP_K = int(os.getenv("TOP_K", "5"))
 
 # Generation
 SYSTEM_PROMPT = """You are a helpful assistant answering questions based on provided context.

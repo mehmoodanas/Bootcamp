@@ -47,10 +47,13 @@ Pipeline evaluated on Day 12: my own (not the reference). AI assistant used: see
 | `generate.py` | Send labelled chunks and the question to the local LLM |
 | `pipeline.py` | End to end: question, retrieve, generate, answer |
 | `benchmark.py` | Exercise 1: compares local models on speed and quality |
+| `compare_embeddings.py` | Extra: compares nomic-embed-text and mxbai-embed-large on retrieval only, writes `embedding_comparison.json` |
 | `test_questions.json` | 18 test questions with expected answers |
 | `benchmark_results.json` | Exercise 1 results with hand-filled quality ratings |
-| `pipeline_outputs.json` | Final pipeline run: qwen3.5:4b, 1000 characters, top_k 8 (evaluated on Day 12) |
-| `pipeline_outputs_*.json` | Experiment runs: 4b and llama3.2:3b with 512/top_k 5 and 1000/top_k 8 |
+| `pipeline_outputs.json` | Final pipeline run: qwen3.5:4b, 1000 characters, top_k 5 (evaluated on Day 12) |
+| `pipeline_outputs_*.json` | Experiment runs: 4b and llama3.2:3b with 512/top_k 5 and 1000/top_k 8, and 4b with 1000/top_k 5 (`pipeline_outputs_4b_c1000_k5.json`, the final setup) |
+| `*_k8.json`, `compare_output_k8.md` | Earlier Day 12 results with top_k 8, kept for comparison after switching to top_k 5 |
+| `embedding_comparison.json` | Embedding comparison result (source of the embedding numbers in the decision log) |
 | `Day-11/decision_log.md` | Day 11 decision log (written by hand) |
 | `Day-12/` | Day 12 evaluation report and an index of all Day 12 files |
 | `AGENTS.md` | Instructions for the AI coding assistant |
@@ -111,7 +114,7 @@ Embeddings stay local, so the same `chroma_db_1000/` serves both runs.
 - Embeddings: `nomic-embed-text` (768 dimensions), cosine distance
 - Parsing: pypdf with `extraction_mode="layout"`
 - Chunking: 1000 characters, 80 characters overlap (RecursiveCharacterTextSplitter, per page)
-- Retrieval: top_k = 8
+- Retrieval: top_k = 5 (1000/top_k 5 passed 17/18 like top_k 8, and is about twice as fast)
 - Vector store folder: `chroma_db_1000/`
 - Context window: 8192 tokens
 

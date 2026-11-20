@@ -5,7 +5,12 @@ Day 12 evaluates the Day 11 pipeline. The Day 12 brief says to run `eval_pipelin
 So all Day 12 scripts and result files are in the project root (`Day-11-12/`), and this folder
 holds the written report and this index.
 
-Pipeline evaluated: my own (qwen3.5:4b-q4_K_M, thinking off, 1000 characters, overlap 80, top_k 8).
+Pipeline evaluated: my own (qwen3.5:4b-q4_K_M, thinking off, 1000 characters, overlap 80, top_k 5).
+
+The first Day 12 run used top_k 8. After an extra test showed top_k 5 gives the same 17/18 about twice as fast,
+the final setup was switched to top_k 5 and every Day 12 step was run again. The top_k 8 results are kept
+with `_k8` in the file name (for example `eval_results_local_k8.json`, `security_results_cloud_k8.json`,
+`compare_output_k8.md`).
 
 ## Exercise to file map
 
