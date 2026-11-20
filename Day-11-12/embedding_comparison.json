@@ -1,0 +1,672 @@
+{
+  "top_k": 8,
+  "chunk_size_chars": 1000,
+  "summary": {
+    "nomic-embed-text": {
+      "questions": 16,
+      "expected_source_in_top_k": 16,
+      "all_expected_sources_in_top_k": 15,
+      "expected_source_at_rank_1": 15,
+      "average_rank_when_found": 1.06,
+      "median_retrieval_ms": 50
+    },
+    "mxbai-embed-large": {
+      "questions": 16,
+      "expected_source_in_top_k": 16,
+      "all_expected_sources_in_top_k": 16,
+      "expected_source_at_rank_1": 16,
+      "average_rank_when_found": 1.0,
+      "median_retrieval_ms": 134
+    }
+  },
+  "rows": [
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q01",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 51
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q02",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "security_policy.pdf",
+        "company_handbook.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 58
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q03",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 47
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q04",
+      "expected_sources": [
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 58
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q05",
+      "expected_sources": [
+        "product_guide.pdf"
+      ],
+      "retrieved_sources": [
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "security_policy.pdf",
+        "product_guide.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "product_guide.pdf",
+        "security_policy.pdf"
+      ],
+      "first_hit_rank": 2,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 50
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q06",
+      "expected_sources": [
+        "security_policy.pdf"
+      ],
+      "retrieved_sources": [
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 50
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q07",
+      "expected_sources": [
+        "product_guide.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 45
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q08",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 50
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q09",
+      "expected_sources": [
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 50
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q10",
+      "expected_sources": [
+        "product_guide.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 46
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q11",
+      "expected_sources": [
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "meeting_notes.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "meeting_notes.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 47
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q12",
+      "expected_sources": [
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "security_policy.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "security_policy.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 62
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q13",
+      "expected_sources": [
+        "company_handbook.pdf",
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 45
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q14",
+      "expected_sources": [
+        "company_handbook.pdf",
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 49
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q15",
+      "expected_sources": [
+        "product_guide.pdf",
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": false,
+      "retrieval_time_ms": 44
+    },
+    {
+      "embedding_model": "nomic-embed-text",
+      "id": "q16",
+      "expected_sources": [
+        "meeting_notes.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 49
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q01",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 117
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q02",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 120
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q03",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 107
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q04",
+      "expected_sources": [
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "meeting_notes.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 174
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q05",
+      "expected_sources": [
+        "product_guide.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 150
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q06",
+      "expected_sources": [
+        "security_policy.pdf"
+      ],
+      "retrieved_sources": [
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf",
+        "security_policy.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 134
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q07",
+      "expected_sources": [
+        "product_guide.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 114
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q08",
+      "expected_sources": [
+        "company_handbook.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 153
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q09",
+      "expected_sources": [
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 136
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q10",
+      "expected_sources": [
+        "product_guide.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 123
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q11",
+      "expected_sources": [
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 147
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q12",
+      "expected_sources": [
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "quarterly_report_q1_2026.pdf",
+        "security_policy.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 278
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q13",
+      "expected_sources": [
+        "company_handbook.pdf",
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "company_handbook.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 158
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q14",
+      "expected_sources": [
+        "company_handbook.pdf",
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "company_handbook.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "security_policy.pdf",
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "security_policy.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 126
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q15",
+      "expected_sources": [
+        "product_guide.pdf",
+        "meeting_notes.pdf"
+      ],
+      "retrieved_sources": [
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "meeting_notes.pdf",
+        "meeting_notes.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "company_handbook.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 126
+    },
+    {
+      "embedding_model": "mxbai-embed-large",
+      "id": "q16",
+      "expected_sources": [
+        "meeting_notes.pdf",
+        "quarterly_report_q1_2026.pdf"
+      ],
+      "retrieved_sources": [
+        "meeting_notes.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf",
+        "quarterly_report_q1_2026.pdf",
+        "product_guide.pdf",
+        "product_guide.pdf"
+      ],
+      "first_hit_rank": 1,
+      "all_expected_sources_found": true,
+      "retrieval_time_ms": 129
+    }
+  ]
+}
