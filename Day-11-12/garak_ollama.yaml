@@ -1,0 +1,16 @@
+run:
+  generations: 1
+  soft_probe_prompt_cap: 40
+plugins:
+  target_type: openai.OpenAICompatible
+  target_name: qwen3.5:4b-q4_K_M
+  generators:
+    openai:
+      OpenAICompatible:
+        uri: http://localhost:11434/v1/
+        api_key: ollama
+        max_tokens: 1024
+        extra_params:
+          reasoning_effort: none
+        suppressed_params:
+          - n

@@ -1,0 +1,124 @@
+# Day 11 and 12: Local Document Q&A (RAG) on Local Models
+
+A RAG pipeline that answers questions about five internal PDF documents of a fictional
+company (NovaTech Solutions). Everything runs locally with Ollama, because the client
+works in a regulated industry and cannot send data to a cloud AI service.
+
+## For the grader
+
+Day 11 (build) and Day 12 (evaluate) are one project: the Day 12 brief runs the evaluation
+inside the Day 11 project, next to `pipeline.py`. All code and result files are in this folder;
+each day's written report is in its own subfolder.
+
+### Day 11 deliverables
+
+| Asked for in the Day 11 brief | File |
+|---|---|
+| Python source files | `config.py`, `ingest.py`, `retrieve.py`, `generate.py`, `pipeline.py`, `benchmark.py` |
+| Benchmark results with quality ratings | `benchmark_results.json` (qwen3.5:4b, qwen3.5:2b, llama3.2:3b) |
+| 15 to 20 test questions | `test_questions.json` (18 questions) |
+| Pipeline run over all test questions | `pipeline_outputs.json` (final setup), experiment runs in `pipeline_outputs_*.json` |
+| Decision log with `ollama ps` output | `Day-11/decision_log.md` |
+| README and AGENTS.md | `README.md`, `AGENTS.md` |
+
+### Day 12 deliverables
+
+| Asked for in the Day 12 brief | File |
+|---|---|
+| Evaluation and security scripts, comparison script | `eval_pipeline.py`, `security_probe.py`, `compare.py` |
+| Local and cloud pipeline outputs | `pipeline_outputs_local.json`, `pipeline_outputs_cloud.json` |
+| DeepEval results | `eval_results_local.json`, `eval_results_cloud.json` |
+| Security results with verdicts | `security_results_local.json`, `security_results_cloud.json` |
+| Garak (optional) | `garak_ollama.yaml`, `garak_report.html`, `garak_report.jsonl` |
+| Evaluation report | `Day-12/evaluation_report.md` |
+
+A full Day 12 index (exercise to file, and how to re-run) is in `Day-12/README.md`.
+
+Pipeline evaluated on Day 12: my own (not the reference). AI assistant used: see the end of this file.
+
+## Where things are
+
+| File | Purpose |
+|---|---|
+| `config.py` | All settings in one place (models, URLs, chunk size, top_k, prompt, token cap name) |
+| `parse_check.py` | Step 1 check: compares pypdf default vs layout mode on a page with a table |
+| `ingest.py` | Load PDFs, chunk, embed, store in ChromaDB |
+| `retrieve.py` | Embed the question, return the top_k chunks with source, page and score |
+| `generate.py` | Send labelled chunks and the question to the local LLM |
+| `pipeline.py` | End to end: question, retrieve, generate, answer |
+| `benchmark.py` | Exercise 1: compares local models on speed and quality |
+| `compare_embeddings.py` | Extra: compares nomic-embed-text and mxbai-embed-large on retrieval only, writes `embedding_comparison.json` |
+| `test_questions.json` | 18 test questions with expected answers |
+| `benchmark_results.json` | Exercise 1 results with hand-filled quality ratings |
+| `pipeline_outputs.json` | Final pipeline run: qwen3.5:4b, 1000 characters, top_k 5 (evaluated on Day 12) |
+| `pipeline_outputs_*.json` | Experiment runs: 4b and llama3.2:3b with 512/top_k 5 and 1000/top_k 8, and 4b with 1000/top_k 5 (`pipeline_outputs_4b_c1000_k5.json`, the final setup) |
+| `*_k8.json`, `compare_output_k8.md` | Earlier Day 12 results with top_k 8, kept for comparison after switching to top_k 5 |
+| `embedding_comparison.json` | Embedding comparison result (source of the embedding numbers in the decision log) |
+| `Day-11/decision_log.md` | Day 11 decision log (written by hand) |
+| `Day-12/` | Day 12 evaluation report and an index of all Day 12 files |
+| `AGENTS.md` | Instructions for the AI coding assistant |
+| `documents/` | The five PDFs |
+
+Note: the decision log is in `Day-11/decision_log.md`, not in the project root.
+
+## Setup (Windows)
+
+1. Install Ollama natively (not in WSL) from https://ollama.com/download.
+2. Set the context window to 8192 and restart Ollama:
+   ```powershell
+   [Environment]::SetEnvironmentVariable("OLLAMA_CONTEXT_LENGTH", "8192", "User")
+   ```
+3. Pull the models:
+   ```powershell
+   ollama pull qwen3.5:4b-q4_K_M
+   ollama pull nomic-embed-text
+   ollama pull qwen3.5:2b-q4_K_M
+   ```
+4. Install uv, then the Python environment:
+   ```powershell
+   uv sync
+   ```
+5. Check the connection: `uv run python test_api.py` should print one sentence and `stop`,
+   and `ollama ps` should show CONTEXT 8192.
+
+`grpcio` is pinned to 1.71.0 because Windows Smart App Control blocked the DLL of grpcio 1.85.3,
+which ChromaDB imports.
+
+## How to run
+
+```powershell
+uv run python ingest.py                       # rebuilds chroma_db_1000/ (not committed)
+uv run python pipeline.py "your question"     # ask one question
+uv run python pipeline.py                     # run all test questions, writes pipeline_outputs.json
+uv run python benchmark.py                    # Exercise 1, writes benchmark_results.json
+```
+
+The `chroma_db*/` folders are not in the repository. `uv run python ingest.py` rebuilds them from the PDFs.
+
+## Switching to the cloud model (Day 12)
+
+No code change, only environment variables (PowerShell):
+
+```powershell
+$env:LLM_BASE_URL = "https://<resource>.openai.azure.com/openai/v1/"
+$env:LLM_API_KEY = $env:AZURE_OPENAI_API_KEY
+$env:LLM_MODEL = "gpt-5.6-luna"
+$env:TOKEN_LIMIT_PARAM = "max_completion_tokens"
+```
+
+Embeddings stay local, so the same `chroma_db_1000/` serves both runs.
+
+## Configuration used
+
+- LLM: `qwen3.5:4b-q4_K_M`, thinking off (`reasoning_effort="none"`), temperature 0.3, max 1024 tokens
+- Embeddings: `nomic-embed-text` (768 dimensions), cosine distance
+- Parsing: pypdf with `extraction_mode="layout"`
+- Chunking: 1000 characters, 80 characters overlap (RecursiveCharacterTextSplitter, per page)
+- Retrieval: top_k = 5 (1000/top_k 5 passed 17/18 like top_k 8, and is about twice as fast)
+- Vector store folder: `chroma_db_1000/`
+- Context window: 8192 tokens
+
+## AI assistant used
+
+Claude (Anthropic, Claude Opus 5.5) helped write the code and check the benchmark answers.
+The pipeline model itself is local. I reviewed the ratings, and the decision log is written by me.
